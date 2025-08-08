@@ -1,0 +1,39 @@
+package StringStackQueue;
+
+public class Main {
+  public static void main(String[] args) {
+    /*
+    Interleave the First Half and Second Half of a Queue
+    Problem Statement:
+    You are given an even-sized queue of integers. Interleave the first half of the queue with
+    the second half.
+    Example:
+    Input:
+    Queue = 1 2 3 4 5 6 7 8
+    Output:
+    1 5 2 6 3 7 4 8
+    */
+
+    String q[] = {"1","2","3","4","5","6","7","8"};
+    int i, n = q.length;
+    int k = n/2;
+    Queue queue = new Queue(n);
+    Queue firstHalf = new Queue(k);
+    Queue secondHalf = new Queue(k);
+    Queue res = new Queue(n);
+    for(i = 0; i < n; i++){
+      queue.enqueue(q[i]);
+    }
+    for(i = 0; i < k; i++){
+      firstHalf.enqueue(queue.poll());
+    }
+    for(i = k; i < n; i++){
+      secondHalf.enqueue(queue.poll());
+    }
+    for (i = 0; i < k; i++){
+      res.enqueue(firstHalf.poll());
+      res.enqueue(secondHalf.poll());
+    }
+    res.display();
+  }
+}
