@@ -1,0 +1,24 @@
+  package StringStackQueue;
+
+  public class Main {
+    public static void main(String[] args) {
+        String str = "aabccdbca";
+        int i, n = str.length();
+        Queue queue = new Queue(n);
+        Queue res = new Queue(n);
+      for (i = 0; i < n; i++) {
+        queue.enqueue(String.valueOf(str.charAt(i)));
+      }
+      int count = 0;
+      while(!queue.isEmpty()) {
+        String ch = queue.poll();
+        if(res.contains(ch)){
+          continue;
+        }
+        res.enqueue(ch);
+        count++;
+      }
+      res.display();
+      System.out.println("Count: "+count);
+    }
+  }
