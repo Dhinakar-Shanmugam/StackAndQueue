@@ -1,0 +1,30 @@
+package StringStackQueue;
+
+import java.util.HashMap;
+
+public class Main {
+  public static void main(String[] args) {
+   /*
+   First Non-Repeating Character
+   input = aabcddbe
+   output = c
+   */
+   String str = "aabcddbe";
+   int i, n = str.length();
+   HashMap<String, Integer> map = new HashMap<>();
+   Queue queue = new Queue(n);
+   for(i = 0; i < n; i++){
+     queue.enqueue(String.valueOf(str.charAt(i)));
+   }
+   for(i = 0; i < n; i++){
+     String ch = String.valueOf(queue.poll());
+     map.put(ch, map.getOrDefault(ch,0)+1);
+   }
+   for(String val : map.keySet()){
+     if(map.get(val) == 1){
+       System.out.println(val);
+       return;
+     }
+   }
+  }
+}
