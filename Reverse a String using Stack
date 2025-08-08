@@ -1,0 +1,28 @@
+package StringStackQueue;
+
+public class Main {
+  public static void main(String[] args) {
+   /*
+   Reverse a String using Stack
+   Problem Statement:
+   Given a string, reverse it using stack operations (push and pop), without using any builtin reverse functions.
+   Example:
+   Input:
+   Java
+   Output:
+   avaJ
+   */
+
+    String str = "Java";
+    String res = "";
+    int i, n = str.length();
+    Stack stack = new Stack(n);
+    for(i = 0; i < n; i++){
+      stack.push(String.valueOf(str.charAt(i)));
+    }
+    for(i = 0; i < n; i++){
+      res += String.valueOf(stack.pop());
+    }
+    System.out.println(res);
+  }
+}
